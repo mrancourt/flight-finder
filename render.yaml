@@ -1,21 +1,19 @@
 # Render Blueprint for Flight Finder
-# This file defines both the backend and frontend services
+# Using Docker for FREE tier deployment
 services:
-  # Backend API Service
+  # Backend API Service (Docker - FREE)
   - type: web
     name: flights-api
-    env: python
+    env: docker
     region: oregon
     branch: main
-    buildCommand: "pip install -r server/requirements.txt"
-    startCommand: "cd server && uvicorn server:app --host 0.0.0.0 --port $PORT"
+    dockerfilePath: ./Dockerfile
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.0
       - key: FLIGHTS_CSV
-        sync: false
+        value: /app/flights.csv
     healthCheckPath: /api/flights
-  # Frontend Static Site
+
+  # Frontend Static Site (FREE)
   - type: web
     name: flights-ui
     env: static

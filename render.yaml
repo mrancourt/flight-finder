@@ -2,16 +2,16 @@
 # Using Docker for FREE tier deployment
 services:
   # Backend API Service (Docker - FREE)
-  - type: web
-    name: flights-api
-    env: docker
-    region: oregon
-    branch: main
-    dockerfilePath: ./Dockerfile
-    envVars:
-      - key: FLIGHTS_CSV
-        value: /app/flights.csv
-    healthCheckPath: /api/flights
+#  - type: web
+#    name: flights-api
+#    env: docker
+#    region: oregon
+#    branch: main
+#    dockerfilePath: ./Dockerfile
+#    envVars:
+#      - key: FLIGHTS_CSV
+#        value: /app/flights.csv
+#    healthCheckPath: /api/flights
 
   # Frontend Static Site (FREE)
   - type: web
